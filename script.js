@@ -1,9 +1,7 @@
 /*
 TODO
-Error z AC/C
 Animacja po kliknięciu przycisku (rozjaśnianie)
 Wykonanie tego samego działania bo ponownym kliknięciu =
-Przyciski +- i %
 */
 
 function add(a, b) {
@@ -152,7 +150,8 @@ function handleClick(button, display, first_value, second_value, operation, resu
             clickC(display);
             result = NaN;
         }
-        clickComma(display);
+        if (display.textContent.search(/\./) == -1)
+            clickComma(display);
     }
     else if (button.id == "button+-") {
         toggleMinus(display);
