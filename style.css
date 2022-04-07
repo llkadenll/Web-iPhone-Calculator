@@ -90,6 +90,10 @@ body {
     align-items: center;
 }
 
+.button::selection {
+    background-color: inherit;
+}
+
 .button-grey {
     background-color: rgb(180, 180, 180);
     color: black;
