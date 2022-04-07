@@ -1,5 +1,5 @@
 # Web-iPhone-Calculator
-A web equivalent of iPhone calculator made just for fun in HTML, CSS and JS.
+A web equivalent of iPhone calculator made just for fun in HTML, CSS and JS. It is not finished yet.
 
 # Screenshots
 <img src="screenshots/1.png" width="49%"> <img src="screenshots/2.png" width="49%">
