@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+body {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: antiquewhite;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone {
+    background-color: white;
+    border: 1px solid rgb(170,170,170);
+    border-radius: 50px;
+    height: 729px;
+    width: 355px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*padding: 6% 1%;*/
+}
+
+.panel {
+    height: 80px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.speaker {
+    background-color: black;
+    border-radius: 10px;
+    height: 3px;
+    width: 60px;
+}
+
+.calculator {
+    background-color: black;
+    border-radius: 3px;
+    /*height: 576px;
+    width: 324px;*/
+    height: 551px;
+    width: 324px;
+    padding: 5px;
+}
+
+.display {
+    height: 164px;
+    width: 288px;
+    color: white;
+    font-size: 450%;
+    font-weight: 300;
+    padding: 0 10px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.buttons {
+    height: 375px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 0 12px 12px;
+}
+
+.button-frame {
+    box-sizing: border-box;
+    height: 75px;
+    width: 75px;
+    padding: 5px;
+}
+
+.button {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(80, 80, 80);
+    border-radius: 50%;
+    color: white;
+    font-size: x-large;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-grey {
+    background-color: rgb(180, 180, 180);
+    color: black;
+}
+
+.button-orange {
+    background-color: rgb(246,153,6);
+}
+
+.button0-frame {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+}
+
+.button0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 50%;
+    border-radius: 40px;
+}
+
+.operation, .equals {
+    font-size: 230%;
+    font-weight: 100;
+}
+
+.touch-id {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 3px rgb(170, 170, 170) solid;
+}
