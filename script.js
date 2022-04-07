@@ -82,6 +82,7 @@ function clickOperation(button, display, first_value, second_value, operation, r
     if (isNaN(first_value) || isNaN(second_value)){
         first_value = parseFloat(display.textContent);
         operation = readOperation(button.textContent);
+        result = NaN;
         //if (isNaN(result)) print("0", display);
     }
     else {
@@ -102,7 +103,7 @@ function clickEquals(display, first_value, second_value, operation, result) {
         print(result, display);
         first_value = result;
         second_value = NaN;
-        operation = NaN;
+        operation = null;
         console.log(first_value, second_value, operation, result);
         return [first_value, second_value, operation, result];
     }
@@ -111,13 +112,14 @@ function clickEquals(display, first_value, second_value, operation, result) {
 
 function handleClick(button, display, first_value, second_value, operation, result) {
     if ((button.className == 'button number' || button.className=="button button0 number") && display.textContent.length < 7) {
-        if (isNaN(result) == false) {
-            clickC(display);
+        if (operation == null && isNaN(result) == 0) {
+            [first_value, second_value, operation, result] = clickAC(display);
             result = NaN;
         }
         if (isNaN(first_value) == 0 && isNaN(second_value) == 1) {
             //print(button.textContent, display);
             second_value = button.textContent;
+            result = NaN;
             clickC(display);
         }
         if (display.textContent == '0') {
@@ -137,7 +139,7 @@ function handleClick(button, display, first_value, second_value, operation, resu
     else if (button.className == "button button-orange operation") {
         [first_value, second_value, operation, result] = clickOperation(button, display, first_value, second_value, operation, result);
     }
-    else if (button.className == "button button-orange equals") {
+    else if (button.className == "button button-orange equals" && isNaN(result) == 1) {
         [first_value, second_value, operation, result] = clickEquals(display, first_value, second_value, operation, result);
     }
     else if (button.id == "button.") {
@@ -162,7 +164,7 @@ function main() {
     const display = document.querySelector('.display');
     let first_value = NaN;
     let second_value = NaN;
-    let operation = NaN;
+    let operation = null;
     let result = NaN;
 
     buttons.forEach((button) => {

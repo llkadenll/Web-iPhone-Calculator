@@ -61,6 +61,10 @@ body {
     align-items: end;
 }
 
+.display::selection {
+    background-color: inherit;
+}
+
 .buttons {
     height: 375px;
     width: 300px;
