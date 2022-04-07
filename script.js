@@ -140,7 +140,7 @@ function handleClick(button, display, first_value, second_value, operation, resu
     else if (button.className == "button button-orange equals") {
         [first_value, second_value, operation, result] = clickEquals(display, first_value, second_value, operation, result);
     }
-    else if (button.id == "button,") {
+    else if (button.id == "button.") {
         if (isNaN(result) != true) {
             clickC(display);
             result = NaN;
@@ -150,7 +150,7 @@ function handleClick(button, display, first_value, second_value, operation, resu
     /*else if (button.id == "button+-") {
         display.textContent = '-' + display.textContent;
     }
-    else if (button.id == "button,") {
+    else if (button.id == "button.") {
         display.textContent = display.textContent + '.';
     }*/
 
