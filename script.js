@@ -78,20 +78,26 @@ function setAC() {
     button.textContent = "AC";
 }
 
+function toggleMinus(display) {
+    if (display.textContent[0] != '-') print('-' + display.textContent, display);
+    else print(display.textContent.substr(1), display);
+}
+
+function calculatePercent(display) {
+    number = parseFloat(display.textContent);
+    return number/100;
+}
+
 function clickOperation(button, display, first_value, second_value, operation, result) {
     if (isNaN(first_value) || isNaN(second_value)){
         first_value = parseFloat(display.textContent);
         operation = readOperation(button.textContent);
         result = NaN;
-        //if (isNaN(result)) print("0", display);
     }
     else {
-        //if (isNaN(result) == 0)
-        //operation = readOperation(button.textContent);
         [first_value, second_value, operation, result] = clickEquals(display, first_value, second_value, operation, result);
         operation = readOperation(button.textContent);
     }
-    //console.log(first_value, second_value, operation, result);
     return [first_value, second_value, operation, result];
 }
 
@@ -117,12 +123,11 @@ function handleClick(button, display, first_value, second_value, operation, resu
             result = NaN;
         }
         if (isNaN(first_value) == 0 && isNaN(second_value) == 1) {
-            //print(button.textContent, display);
             second_value = button.textContent;
             result = NaN;
             clickC(display);
         }
-        if (display.textContent == '0') {
+        if (display.textContent == '0' || display.textContent == '-0') {
             print(button.textContent, display);
             if (display.textContent != "0")
             setC();
@@ -139,7 +144,7 @@ function handleClick(button, display, first_value, second_value, operation, resu
     else if (button.className == "button button-orange operation") {
         [first_value, second_value, operation, result] = clickOperation(button, display, first_value, second_value, operation, result);
     }
-    else if (button.className == "button button-orange equals" && isNaN(result) == 1) {
+    else if (button.className == "button button-orange equals" && isNaN(result) == 1 && isNaN(first_value) == 0) {
         [first_value, second_value, operation, result] = clickEquals(display, first_value, second_value, operation, result);
     }
     else if (button.id == "button.") {
@@ -149,12 +154,14 @@ function handleClick(button, display, first_value, second_value, operation, resu
         }
         clickComma(display);
     }
-    /*else if (button.id == "button+-") {
-        display.textContent = '-' + display.textContent;
+    else if (button.id == "button+-") {
+        toggleMinus(display);
+    
     }
-    else if (button.id == "button.") {
-        display.textContent = display.textContent + '.';
-    }*/
+    
+    else if (button.id == "button%") {
+        print(calculatePercent(display), display);
+    }
 
     return [first_value, second_value, operation, result];
 }
@@ -170,7 +177,6 @@ function main() {
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             [first_value, second_value, operation, result] = handleClick(button, display, first_value, second_value, operation, result);
-            //console.log(first_value, second_value, operation, result);
         });
     });
 }
